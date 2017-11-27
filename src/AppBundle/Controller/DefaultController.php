@@ -18,4 +18,21 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+    
+    /**
+     * @Route("/getMap/", name="get_map")
+     */
+    public function getMapAction( Request $request  ){
+        
+        
+       // var_dump($request->get('address'));
+       // die();
+        $address = $request->get('address');
+              
+        
+        return $this->render("default/getmap.html.twig", [
+            'address'=> $address,
+        ]);
+        
+    }
 }
