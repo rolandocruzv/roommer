@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent()}}
+{% endblock %}  
+
+{% block body %}
+    
+    <div class="container" id="contenedor">
+        <div class="row"
+             <div>
+    
+                <h1>Image creation</h1>
+
+                {{ form_start(form) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.alt) }}
+                    {{ form_row(form.path) }}
+                    <input type="submit" value="Create" />
+                {{ form_end(form) }}
+                
+                
+                
+
+                <ul>
+                    <li>
+                        <a href="{{ path('image_index') }}">Back to the list</a>
+                    </li>
+                </ul>
+            </div>            
+        </div>
+    </div>                    
+{% endblock %}

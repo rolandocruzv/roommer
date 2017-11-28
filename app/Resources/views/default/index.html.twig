@@ -26,12 +26,13 @@
                                 <span class="input-group-addon">                                    
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </span>
-                                <input type="text" id="search" name="address" class="form-control big-input" placeholder="Search where (Ex. Varadero, Cuba)" autocomplete="on">
+                                <input value="Holguín, Cuba" type="text" id="search" name="address" class="form-control big-input" placeholder="Search where (Ex. Varadero, Cuba)" autocomplete="on">
                             </div>    
                             <input type="submit" class="btn btn-primary btn-xl page-scroll" value="Enjoy start Here">
                         </div>    
-                    </form>              
-            
+                    </form>
+                        
+        
                 </div>
             </div>        
               
@@ -45,6 +46,9 @@
 
 {% block javascripts %}
     {{parent()}}
+    
+    
+    
     <script>
         $(document).ready(function(){
             var search = $("#search").on('click', activatePlacesSearch());
@@ -59,7 +63,7 @@
         
         
     </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU2tT8eIQoiWOGJdu-RamLB2pVXv9qpk&libraries=places&callback=activatePlacesSearch"></script>\
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU2tT8eIQoiWOGJdu-RamLB2pVXv9qpk&libraries=places&callback=activatePlacesSearch"></script>
     
 
     

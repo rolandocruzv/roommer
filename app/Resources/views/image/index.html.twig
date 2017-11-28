@@ -1,40 +1,41 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}
     {{ parent()}}
-{% endblock %}    
+{% endblock %}  
 
 {% block body %}
     
     <div class="container" id="contenedor">
         <div class="row"
              <div>
-                 
-                <h1>Rooms list</h1>
+    
+                <h1>Images list</h1>
 
                 <table>
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Identifier</th>
-                            <th>Description</th>
-                            <th>Price</th>
+                            <th>Name</th>
+                            <th>Alt</th>
+                            <th>Path</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for room in rooms %}
+                    {% for image in images %}
                         <tr>
-                            <td><a href="{{ path('room_show', { 'id': room.id }) }}">{{ room.id }}</a></td>
-                            <td>{{ room.identifier }}</td>
-                            <td>{{ room.description }}</td>
-                            <td>{{ room.price }}</td>
+                            <td><a href="{{ path('image_show', { 'id': image.id }) }}">{{ image.id }}</a></td>
+                            <td>{{ image.name }}</td>
+                            <td>{{ image.alt }}</td>
+                            <td>{{ image.path }}</td>
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('room_show', { 'id': room.id }) }}">show</a>
+                                        <a href="{{ path('image_show', { 'id': image.id }) }}">show</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('room_edit', { 'id': room.id }) }}">edit</a>
+                                        <a href="{{ path('image_edit', { 'id': image.id }) }}">edit</a>
                                     </li>
                                 </ul>
                             </td>
@@ -45,13 +46,10 @@
 
                 <ul>
                     <li>
-                        <a href="{{ path('room_new') }}">Create a new room</a>
+                        <a href="{{ path('image_new') }}">Create a new image</a>
                     </li>
-                </ul> 
-                 
-             </div>    
+                </ul>
+            </div>            
         </div>
-    </div>
-    
-    
+    </div>                    
 {% endblock %}

@@ -9,15 +9,53 @@
 {%endblock%}
 
 {% block body %}
+    
+ <div class="container" id="contenedor">
+     <div class="row">
+        <div class="col-xs-12 centrar"> 
+            <form class="form-inline" method="post" action="{{path('get_map')}}">
+               <div class="form-group">
+                   <div class="input-group">
+                       <span class="input-group-addon">                                    
+                           <i class="fa fa-search" aria-hidden="true"></i>
+                       </span>
+                       <input value="{{ address }}" type="text" id="search" name="address" class="form-control big-input" placeholder="Search where (Ex. Varadero, Cuba)" autocomplete="on">
+                   </div>    
+                   <input type="submit" class="btn btn-primary btn-xl page-scroll" value="Enjoy start Here">
+               </div>    
+           </form> 
+        </div>           
+    </div>           
 
-<div id="mapa" style="width: 700px; height: 500px;"></div>
+    <div class="row"> 
+        <div class="col-xs-12 centrar"> 
+            <div id="mapa" style="width: 700px; height: 500px;"></div>
+        </div>    
+    </div>    
+
+</div>
     
 {% endblock %}
 
 {% block javascripts %}
     {{parent()}}
     
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v3&key=AIzaSyDMU2tT8eIQoiWOGJdu-RamLB2pVXv9qpk"></script>
+    <script>
+        $(document).ready(function(){
+            var search = $("#search").on('click', activatePlacesSearch());
+        });
+        function activatePlacesSearch(){
+            var search = $('#search')[0];
+            //var search = document.getElementById('search');           
+            
+            var autocomplete = new google.maps.places.Autocomplete(search);
+            
+        }
+        
+        
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU2tT8eIQoiWOGJdu-RamLB2pVXv9qpk&libraries=places&callback=activatePlacesSearch"></script>\
+    
     
     <script type="text/javascript" src="{{asset('js/customFunctionsGoogleMaps.js')}}"> </script>
     
@@ -26,6 +64,8 @@
     getAddressInMap(   "{{address}}"   );       
         
     </script>
+    
+        
     
 {%endblock%}
 
