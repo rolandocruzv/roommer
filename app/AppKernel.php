@@ -3,6 +3,12 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+/*use Application\Sonata\MediaBundle;
+use Sonata\EasyExtendsBundle;
+use JMS\SerializerBundle;*/
+
+use Application\Sonata\MediaBundle;
+
 class AppKernel extends Kernel
 {
     public function registerBundles()
@@ -16,6 +22,13 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+			
+			new Sonata\MediaBundle\SonataMediaBundle(),
+			new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+			// You need to add this dependency to make media functional
+			new JMS\SerializerBundle\JMSSerializerBundle(),
+			new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
