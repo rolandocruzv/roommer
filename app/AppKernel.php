@@ -28,6 +28,7 @@ class AppKernel extends Kernel
 
 			// You need to add this dependency to make media functional
 			new JMS\SerializerBundle\JMSSerializerBundle(),
+			new Sonata\CoreBundle\SonataCoreBundle(),
 			new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
         ];
 

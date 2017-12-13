@@ -34,6 +34,25 @@
                         
         
                 </div>
+                <div class="row">
+                    {% for image in entity.images %}
+							
+				<div class="col-md-3" style="margin-top: 20px">
+					<div class="col-md-12">
+						{{entity.mark}}						
+					</div>
+					<div class="col-md-12">
+						<a href="{{ path('shoe_show', { 'id': entity.id })}}">
+							{% thumbnail image.media, 'small' %}
+						</a>
+					</div>
+					<div class="col-md-12">
+						{{entity.price|number_format(2, '.', ',') }} | <a href="{{entity.url}}">Ir al sitio</a>
+					</div>
+				</div>	
+			
+                    {%endfor%}
+                </div>        
             </div>        
               
         </div>			

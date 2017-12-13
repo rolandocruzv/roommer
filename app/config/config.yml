@@ -79,6 +79,7 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+sonata_core: ~
 sonata_media:
     # if you don't use default namespace configuration
     #class:
